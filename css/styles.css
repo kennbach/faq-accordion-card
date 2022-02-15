@@ -1,0 +1,163 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+/* Reset */
+*:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
+  all: unset;
+  display: revert;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+textarea {
+  white-space: revert;
+}
+
+:root {
+  /* set font-size to base-10 from base-16 */
+  font-size: 62.5%;
+
+  /* Variables */
+  --main-width-mobile: 375px;
+  --main-width-desktop: 1440px;
+  --card-width-mobile: 325px;
+  --card-width-desktop: 1100px;
+
+  --font-family-base: "Kumbh Sans", sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  --color-white: hsl(0, 0%, 100%);
+  --color-primary-text: hsl(238, 29%, 16%);
+  --color-secondary-text: hsl(237, 12%, 33%);
+  --color-tertiary-text: hsl(240, 6%, 50%);
+  --color-arrow: hsl(14, 88%, 65%);
+  --color-divider: hsl(240, 5%, 91%);
+  --color-bg-gradient-top: hsl(273, 75%, 66%);
+  --color-bg-gradient-bottom: hsl(240, 73%, 65%);
+
+  --card-box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.33);
+  --card-border-radius: 2rem;
+}
+
+/* Project Styles - Mobile First */
+body {
+  background: linear-gradient(
+    var(--color-bg-gradient-top),
+    var(--color-bg-gradient-bottom)
+  );
+  background-repeat: no-repeat;
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-regular);
+  font-size: 1.2rem;
+  margin: 5vw;
+}
+main {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  max-width: 100%;
+  min-height: 100vh;
+}
+
+.card {
+  max-width: var(--card-width-mobile);
+  height: auto;
+  padding: 2.5rem;
+  background-color: var(--color-white);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--card-box-shadow);
+}
+
+.image-container {
+}
+
+.content-container {
+  text-align: left;
+  margin-bottom: 1.5em;
+}
+
+.card h1 {
+  font-size: 2.4em;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-text);
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.faqs {
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
+}
+
+.faq {
+  padding: 1em 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.faq-question {
+  display: grid;
+  grid-template-columns: auto 15px;
+  gap: 0 2em;
+  margin-bottom: 0.5em;
+  font-size: 1.3rem;
+}
+
+.faq-question p {
+  justify-self: start;
+  align-self: start;
+  width: 100%;
+  color: var(--color-secondary-text);
+}
+
+.active p {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-text);
+}
+
+.faq-question img {
+  justify-self: end;
+  align-self: center;
+  transition: 0.4s;
+}
+
+.active img {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-width: 100%;
+  color: var(--color-tertiary-text);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  display: none;
+}
+
+.show-answer {
+  display: contents;
+}
+
+/* Desktop styles */
+@media screen and (min-width: 1200px) {
+  body {
+    margin: 0;
+  }
+}
