@@ -1,7 +1,7 @@
-/* Fonts */
+/********************  Fonts  *********************/
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
 
-/* Reset */
+/********************  CSS Reset  *********************/
 *:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
   all: unset;
   display: revert;
@@ -34,7 +34,7 @@ textarea {
   /* set font-size to base-10 from base-16 */
   font-size: 62.5%;
 
-  /* Variables */
+  /********************  Variables  *********************/
   --main-width-mobile: 375px;
   --main-width-desktop: 1440px;
   --card-width-mobile: 325px;
@@ -57,49 +57,115 @@ textarea {
   --card-border-radius: 2rem;
 }
 
-/* Project Styles - Mobile First */
+/********************  Begin Mobile  *********************/
 body {
-  background: linear-gradient(
-    var(--color-bg-gradient-top),
-    var(--color-bg-gradient-bottom)
-  );
-  background-repeat: no-repeat;
   font-family: var(--font-family-base);
-  font-weight: var(--font-weight-regular);
   font-size: 1.2rem;
-  margin: 5vw;
+  font-weight: var(--font-weight-regular);
+  background: linear-gradient(
+      var(--color-bg-gradient-top),
+      var(--color-bg-gradient-bottom)
+    )
+    no-repeat;
 }
 main {
-  display: grid;
-  justify-items: center;
-  align-items: center;
-  max-width: 100%;
+  max-width: var(--card-width-mobile);
   min-height: 100vh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: max-content;
 }
 
+/********************  TEMPORARY DESIGN STYLES  *********************/
+.mobile-box {
+  display: none;
+  margin: 0 auto;
+  width: var(--card-width-mobile);
+  background-color: black;
+  color: greenyellow;
+  text-align: center;
+}
+.desktop-box {
+  display: none;
+  margin: 0 auto;
+  width: var(--card-width-mobile);
+  background-color: black;
+}
+
+/********************  Card  *********************/
 .card {
-  max-width: var(--card-width-mobile);
-  height: auto;
+  width: 100%;
   padding: 2.5rem;
   background-color: var(--color-white);
   border-radius: var(--card-border-radius);
   box-shadow: var(--card-box-shadow);
+  margin-top: 150px;
+  margin-left: min(10px, 1ovw);
+  margin-right: min(10px, 10vw);
+  /* margin-top: min(150px, 45vw); */
 }
 
+/********************  Begin Image   *********************/
 .image-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  line-height: 0;
+  height: 100px;
+  /* height: min(100px, 20vw); */
+  width: auto;
+  padding: 0 auto;
 }
 
+.image-woman {
+  transform: translateY(-133px);
+  /* transform: translateY(max(-133px, -42vw)); */
+  /* transform: translateY(-73%);  */
+  width: 235px;
+  height: auto;
+  justify-self: center;
+  z-index: 2;
+}
+
+.image-woman-mobile {
+  display: content;
+}
+.image-woman-desktop {
+  display: none;
+}
+
+.image-shadow-mobile {
+  transform: translateY(-205px);
+  /* transform: translateY(max(-205px, -65vw)); */
+  width: 235px;
+  height: auto;
+  justify-self: center;
+
+  z-index: 1;
+  display: content;
+}
+
+.image-shadow-desktop {
+  transform: translateY(-210px);
+  width: 235px;
+  height: auto;
+  justify-self: center;
+  z-index: 1;
+  display: none;
+}
+
+/********************  Begin FAQ Content  *********************/
 .content-container {
   text-align: left;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.7em;
+  max-width: 100%;
 }
 
 .card h1 {
-  font-size: 2.4em;
+  font-size: 2.6em;
   font-weight: var(--font-weight-bold);
   color: var(--color-primary-text);
   text-align: center;
-  margin-bottom: 1em;
+  margin: 0.2em 0 0.5em 0;
 }
 
 .faqs {
@@ -115,7 +181,8 @@ main {
 .faq-question {
   display: grid;
   grid-template-columns: auto 15px;
-  gap: 0 2em;
+  gap: 0 0.5em;
+  margin-top: 0.1em;
   margin-bottom: 0.5em;
   font-size: 1.3rem;
 }
@@ -134,7 +201,7 @@ main {
 
 .faq-question img {
   justify-self: end;
-  align-self: center;
+  align-self: start;
   transition: 0.4s;
 }
 
@@ -146,18 +213,57 @@ main {
   max-width: 100%;
   color: var(--color-tertiary-text);
   max-height: 0;
-  overflow: hidden;
   transition: max-height 0.2s ease-out;
   display: none;
+}
+
+.faq-answer p {
+  margin-right: 15px;
 }
 
 .show-answer {
   display: contents;
 }
+/********************  END Mobile Styles  *********************/
 
-/* Desktop styles */
+/********************  Watch Styles  *********************/
+@media screen and (max-width: 280px) {
+  main {
+    margin: 0 5px 0 5px;
+  }
+  .card {
+    width: 100%;
+    padding: 1rem;
+    margin-top: min(150px, 45vw);
+    border-radius: 1rem;
+  }
+  .image-container {
+    height: min(100px, 20vw);
+    padding: 0 auto;
+  }
+  .image-woman {
+    transform: translateY(-70%);
+  }
+  .image-woman-mobile {
+    display: content;
+  }
+  .image-woman-desktop {
+    display: none;
+  }
+  .image-shadow-mobile {
+    transform: translateY(min(-210%, -69vw));
+  }
+  .card h1 {
+    font-size: 10vw;
+    margin: 0.5em 0 0.2em 0;
+  }
+}
+/********************  END Watch Styles  *********************/
+
+/********************  Begin Desktop Styles  *********************/
 @media screen and (min-width: 1200px) {
   body {
     margin: 0;
   }
 }
+/********************  END Desktop Styles  *********************/
