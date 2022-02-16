@@ -62,11 +62,11 @@ body {
   font-family: var(--font-family-base);
   font-size: 1.2rem;
   font-weight: var(--font-weight-regular);
-  background: linear-gradient(
+  /* background: linear-gradient(
       var(--color-bg-gradient-top),
       var(--color-bg-gradient-bottom)
     )
-    no-repeat;
+    no-repeat; */
 }
 main {
   max-width: var(--card-width-mobile);
@@ -90,7 +90,7 @@ main {
   grid-template-columns: 1fr;
   line-height: 0;
   height: 100px;
-  width: auto;
+  max-width: 100%;
   padding: 0 auto;
 }
 .image-woman {
@@ -115,9 +115,11 @@ main {
   display: content;
 }
 .image-shadow-desktop {
-  display: none;
-}
-.image-box-desktop {
+  transform: translateY(-210px);
+  width: 235px;
+  height: auto;
+  justify-self: center;
+  z-index: 1;
   display: none;
 }
 .content-container {
@@ -217,13 +219,12 @@ main {
 
 /********************  Begin Desktop Styles  *********************/
 @media screen and (min-width: 1200px) {
-  body {
-    background: linear-gradient(
-        var(--color-bg-gradient-top),
-        66%,
-        var(--color-bg-gradient-bottom)
-      )
-      no-repeat;
+  .desktop-box {
+    margin: 0 auto;
+    width: var(--card-width-desktop);
+    background-color: black;
+    color: limegreen;
+    text-align: center;
   }
   main {
     max-width: var(--card-width-desktop);
@@ -231,7 +232,6 @@ main {
     margin: 0 auto;
     display: grid;
     grid-template-rows: max-content;
-    position: relative;
   }
   .card {
     padding: 2.5rem;
@@ -242,11 +242,10 @@ main {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 460px;
     grid-template-areas: "desktop-image desktop-content";
-    overflow: hidden;
   }
   .card h1 {
     text-align: left;
-    margin: 1.25em 0 0.5em 0;
+    margin: 0.2em 0 0.5em 0;
   }
   .image-container {
     grid-area: desktop-image;
@@ -254,17 +253,8 @@ main {
   }
   .content-container {
     grid-area: desktop-content;
-    margin-left: 1em;
     margin-bottom: 1.7em;
     max-width: 100%;
-  }
-  .faq-question {
-    margin-top: 0.2em;
-    margin-bottom: 0.5em;
-    font-size: 1.4rem;
-  }
-  .image-container {
-    position: relative;
   }
   .image-woman {
     width: 100%;
@@ -272,32 +262,19 @@ main {
   }
   .image-woman-desktop {
     display: block;
-    position: absolute;
-    top: 50%;
-    left: -20%;
-    transform: scale(1.1);
+    transform: translateX(-100px) translateY(60px) scale(1.05);
   }
   .image-shadow-desktop {
     display: block;
     width: 100%;
-    transform: scale(2.25);
-    position: absolute;
-    top: -65%;
-    left: -80%;
+    transform: translateX(-370px) translateY(-400px) scale(2.3);
+    overflow: hidden;
   }
-  .image-box-desktop {
-    display: block;
-    z-index: 10;
-    position: absolute;
-    top: 350px;
-    left: -9%;
-  }
-  /* hide mobile images */
-  .image-woman-mobile {
-    display: none;
-  }
-  .image-shadow-mobile {
-    display: none;
-  }
+}
+.image-woman-mobile {
+  display: none;
+}
+.image-shadow-mobile {
+  display: none;
 }
 /********************  END Desktop Styles  *********************/
