@@ -48,6 +48,7 @@ Desktop Design
 - Semantic HTML5 markup
 - CSS Variables
 - CSS Grid
+- Vanilla JavaScript
 - Mobile-first workflow
 - Accessibility Aware
 
